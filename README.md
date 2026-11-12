@@ -1,20 +1,47 @@
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="brand/logo/png/iro-mark-cream.png">
-    <img src="brand/logo/png/iro-mark-navy.png" alt="IRO" width="220">
-  </picture>
+  <img src="docs/images/hero.jpg" alt="The IRO panel: a sound effects library sorted into categories, with a waveform editor" width="100%">
 </p>
 
-# IRO for DaVinci Resolve Studio
+<h1 align="center">IRO for DaVinci Resolve Studio</h1>
 
-Your sound effect library, sorted into categories, inside Resolve. Search, preview, find sounds in the key of your music, and drag them onto the timeline or double-click to drop them at the playhead.
+<p align="center">
+  <b>Your sound effects, sorted and ready to drag onto the timeline.</b><br>
+  Free for everyone, for personal and paid work.
+</p>
 
-*Iró* is a Yoruba word. IRO is free for everyone, for personal and paid work. If it saves you time, there is a Donate button in the panel.
+<p align="center">
+  <a href="https://github.com/Kreativetrybe/iro/releases/latest"><img src="https://img.shields.io/badge/Download_for_Mac-free-f0883e?style=for-the-badge" alt="Download for Mac (free)"></a>
+</p>
 
-Nothing else needs installing: sorting, waveforms, sections and key detection run inside the panel (`plugin/engine/`), on Resolve's own Electron. Your sounds stay where they are, and nothing is uploaded.
+*Iró* is a Yoruba word. IRO is a panel inside DaVinci Resolve Studio that sorts your sound effect library into categories, so you can search, preview and place sounds without leaving your edit. Nothing else needs installing, your sounds stay where they are, and nothing is uploaded.
+
+## How it works
+
+### 1. Pick your sound folders
+<img src="docs/images/1-choose-folders.jpg" alt="IRO's first screen, asking you to choose your sound folders" width="100%">
+
+In Resolve, open **Workspace › Workflow Integrations › IRO** and choose the folders that hold your sound effects. IRO sorts them once into Whooshes, Risers, Impacts, Pops and more, using the file names and how each sound behaves. Later rescans only look at new or changed files.
+
+### 2. Search, preview and keep just the part you need
+<img src="docs/images/2-search-preview.jpg" alt="Searching for whoosh, with one sound selected and part of its waveform picked" width="100%">
+
+Type what you are after, click a sound to hear it, and drag across the waveform to keep only a section.
+
+### 3. Put it on your timeline
+Double-click a sound, or press **Enter**, to place it at the playhead. Or drag it to any spot on the timeline. With the **Auto** track setting, IRO uses a track named SFX or FX, or the next free one.
+
+### 4. Find sounds in the key of your music
+<img src="docs/images/3-key.jpg" alt="The Key filter set to C major, showing pitched sounds with their notes" width="100%">
+
+**Read music key** reads the key of the music under the playhead. The **Key** filter then shows sounds that fit it. You can also pick any key yourself.
+
+### 5. Make it yours
+<img src="docs/images/4-categories.jpg" alt="The right-click menu for moving a sound to another category or a new one" width="100%">
+
+Star your favourites, move a sound to a different category, or make your own categories, such as *Intro hits*. IRO remembers your changes when it rescans.
 
 ## Download
-Get the latest Mac installer from [Releases](../../releases/latest) and follow [INSTALL.md](INSTALL.md). You need **DaVinci Resolve Studio 18 or later**: workflow integration panels are a Studio feature. Windows: `build/windows/iro.iss` (not tested yet).
+Get the latest Mac installer from [Releases](https://github.com/Kreativetrybe/iro/releases/latest) and follow [INSTALL.md](INSTALL.md). You need **DaVinci Resolve Studio 18 or later**: workflow integration panels are a Studio feature. Windows: `build/windows/iro.iss` (not tested yet).
 
 ## Building from source
 - **Installer:** `build/build_mac.sh` builds `dist/IRO-<version>.pkg` and the download zip `dist/IRO-<version>-mac.zip`.
