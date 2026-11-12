@@ -1,0 +1,6 @@
+{
+    "name": "sfx-browser",
+    "version": "0.1.0",
+    "description": "Sound effect library browser for DaVinci Resolve Studio",
+    "main": "main.js"
+}

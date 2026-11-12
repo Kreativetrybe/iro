@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<installer-gui-script minSpecVersion="2">
+    <title>@NAME@</title>
+    <background file="background.png" mime-type="image/png" alignment="bottomleft" scaling="proportional"/>
+    <background-darkAqua file="background-dark.png" mime-type="image/png" alignment="bottomleft" scaling="proportional"/>
+    <welcome file="welcome.html" mime-type="text/html"/>
+    <license file="LICENSE.txt"/>
+    <conclusion file="conclusion.html" mime-type="text/html"/>
+    <options customize="never" require-scripts="false" hostArchitectures="arm64,x86_64"/>
+    <domains enable_localSystem="true" enable_currentUserHome="false" enable_anywhere="false"/>
+    <installation-check script="check()"/>
+    <script><![CDATA[
+function check() {
+    var node = '/Library/Application Support/Blackmagic Design/DaVinci Resolve/Developer/Workflow Integrations/Examples/SamplePlugin/WorkflowIntegration.node';
+    if (!system.files.fileExistsAtPath(node)) {
+        my.result.type = 'Fatal';
+        my.result.title = 'DaVinci Resolve Studio is needed';
+        my.result.message = '@NAME@ is a panel for DaVinci Resolve Studio 18 or later, and it was not found on this Mac. Install Resolve Studio first, then run this installer again.';
+        return false;
+    }
+    return true;
+}
+    ]]></script>
+    <choices-outline>
+        <line choice="default"/>
+    </choices-outline>
+    <choice id="default" title="@NAME@">
+        <pkg-ref id="@ID@.pkg"/>
+    </choice>
+    <pkg-ref id="@ID@.pkg" version="@VERSION@" onConclusion="none">component.pkg</pkg-ref>
+</installer-gui-script>

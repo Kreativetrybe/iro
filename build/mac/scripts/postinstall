@@ -1,0 +1,15 @@
+#!/bin/bash
+# Runs after the panel's files are installed. Blackmagic's WorkflowIntegration.node is not
+# shipped in the installer: it is copied from the user's own Resolve Studio install.
+RESOLVE="/Library/Application Support/Blackmagic Design/DaVinci Resolve"
+DEST="$RESOLVE/Workflow Integration Plugins/@ID@"
+NODE="$RESOLVE/Developer/Workflow Integrations/Examples/SamplePlugin/WorkflowIntegration.node"
+
+# Overwriting this binary while an open panel has it loaded makes macOS kill the panel,
+# so only copy it when it is missing or changed (a Resolve update).
+if [ -f "$NODE" ]; then
+    cmp -s "$NODE" "$DEST/WorkflowIntegration.node" || cp "$NODE" "$DEST/WorkflowIntegration.node"
+fi
+
+chmod -R a+rX "$DEST"
+exit 0

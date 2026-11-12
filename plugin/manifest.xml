@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BlackmagicDesign>
+    <Plugin>
+        <Id>com.thiseniola.iro</Id>
+        <Name>IRO</Name>
+        <Version>1.0.0</Version>
+        <Description>IRO: your sound effect library sorted into categories, with drag to timeline</Description>
+        <FilePath>main.js</FilePath>
+    </Plugin>
+</BlackmagicDesign>

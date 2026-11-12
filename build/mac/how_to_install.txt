@@ -1,0 +1,15 @@
+@NAME@ @VERSION@ for DaVinci Resolve Studio (Mac)
+
+@NAME@ needs DaVinci Resolve Studio 18 or later. The free edition of Resolve can't run panels.
+
+1. Close DaVinci Resolve.
+2. Double-click @NAME@-@VERSION@.pkg. macOS says it "can't verify" the installer, because @NAME@ is free and not from the App Store. Click Done, not Move to Trash.
+3. Open System Settings > Privacy & Security and scroll down to Security. Next to "@NAME@-@VERSION@.pkg" was blocked, click Open Anyway, then enter your Mac password.
+4. The installer opens. Click through it.
+5. Open Resolve and choose Workspace > Workflow Integrations > @NAME@, then pick the folders that hold your sound effects.
+
+You only do step 3 once. If you don't see Open Anyway, open the installer again first.
+
+To remove @NAME@, double-click "Uninstall @NAME@.command" (the same Open Anyway step applies).
+
+@NAME@ only reads the sound folders you pick. It doesn't upload anything.

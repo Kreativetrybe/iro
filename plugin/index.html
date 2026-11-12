@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; media-src file:; img-src 'self' file: data:; style-src 'self' 'unsafe-inline'">
+    <title>IRO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img class="logo" src="img/iro-mark.svg" alt="IRO" title="About IRO" draggable="false">
+        <div class="searchBox">
+            <input id="search" type="search" placeholder="Search: soft whoosh, keyboard, bell" autocomplete="off" autofocus>
+            <div id="recentSearches" hidden></div>
+        </div>
+        <select id="length" title="Length">
+            <option value="any">Any length</option>
+            <option value="0-0.5">Under 0.5 s</option>
+            <option value="0.5-2">0.5 to 2 s</option>
+            <option value="2-5">2 to 5 s</option>
+            <option value="5-99999">Over 5 s</option>
+        </select>
+    </header>
+
+    <div id="musicbar">
+        <button id="readKey" title="Read the key of the music under the playhead">Read music key</button>
+        <span id="musicInfo" class="muted">Music on the timeline: not read yet</span>
+        <select id="musicClip" hidden></select>
+    </div>
+
+    <main>
+        <nav id="cats"></nav>
+        <div id="split" title="Drag to resize the sidebar"></div>
+        <section id="listWrap">
+            <div id="toolbar">
+                <div class="seg">
+                    <button id="showAll" class="on">All</button>
+                    <button id="showFav" title="Only your starred sounds in this category">&#9733; Favourites <span id="favN" class="n"></span></button>
+                </div>
+                <span class="grow"></span>
+                <select id="keyFilter" title="Filter by musical key"></select>
+            </div>
+            <div id="listArea">
+                <div id="list"><div id="spacer"></div><div id="rows"></div></div>
+                <div id="empty" hidden></div>
+            </div>
+            <div id="editor" hidden>
+                <div class="edHead">
+                    <span id="edName"></span>
+                    <span class="grow"></span>
+                    <button id="edPlay">Play</button>
+                    <button id="edClear" hidden>Clear</button>
+                    <div id="edDrag" draggable="true" title="Drag onto the timeline">Drag</div>
+                </div>
+                <canvas id="edWave"></canvas>
+                <div id="edRange" class="muted"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span id="status" class="muted">Double-click or Enter places at the playhead. Drag to place anywhere.</span>
+        <span class="grow"></span>
+        <label class="muted">Track <select id="track"><option value="auto">Auto</option></select></label>
+        <input id="volume" type="range" min="0" max="1" step="0.05" value="0.8" title="Preview volume">
+        <label class="muted" title="Keep this window above Resolve"><input type="checkbox" id="onTop"> On top</label>
+        <button id="rescan" title="Sort new or changed files">Rescan</button>
+        <button id="aboutBtn" title="About and donations">About</button>
+    </footer>
+
+    <div id="firstRun" class="overlay" hidden>
+        <div class="card">
+            <img class="ovLogo" src="img/iro-mark.svg" alt="" draggable="false">
+            <h2 id="frTitle">Sorting your sound library</h2>
+            <p id="frText" class="muted">Starting…</p>
+            <div id="frProgress">
+                <div class="bar"><div id="frBar"></div></div>
+                <p class="muted small">This runs once. Later rescans only look at new or changed files.</p>
+            </div>
+            <button id="frAdd" class="primary" hidden>Choose folders</button>
+        </div>
+    </div>
+
+    <div id="about" class="overlay" hidden>
+        <div class="card">
+            <button id="aboutClose" class="close" title="Close">&times;</button>
+            <img class="ovLogo big" src="img/iro-mark.svg" alt="" draggable="false">
+            <h2 id="aboutTitle" class="sr">IRO</h2>
+            <p class="muted">Free for everyone, for personal and paid work. If it saves you time, you can donate whatever you like to keep it going.</p>
+            <div class="actions">
+                <button id="aboutDonate" class="primary" hidden>Donate</button>
+                <button id="aboutSite" hidden>Website</button>
+            </div>
+            <p id="aboutInfo" class="muted small"></p>
+        </div>
+    </div>
+
+    <div id="nameBox" hidden>
+        <div class="box">
+            <div id="nbTitle" class="nbTitle">New category</div>
+            <input id="nbInput" type="text" maxlength="40" placeholder="For example: Cinematic hits" autocomplete="off" spellcheck="false">
+            <p id="nbErr" class="err small" hidden></p>
+            <div class="actions"><button id="nbCancel">Cancel</button><button id="nbOk" class="primary">Create</button></div>
+        </div>
+    </div>
+
+    <div id="menu" hidden></div>
+    <div id="toast" hidden></div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>

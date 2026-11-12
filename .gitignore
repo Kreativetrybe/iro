@@ -1,0 +1,13 @@
+# Kept on this Mac only
+personal/
+legacy/
+LAUNCH.md
+
+# Built files go on the Releases page
+dist/
+
+# Blackmagic's file: always copied from the user's own Resolve install
+*.node
+
+.DS_Store
+node_modules/
