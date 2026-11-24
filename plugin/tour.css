@@ -1,0 +1,62 @@
+/* The first-open tour (tour.js). Colours come from the tokens in style.css. */
+#tour { z-index: 40; }
+#tour .tSkip { position: fixed; top: 14px; right: 14px; z-index: 2; }
+#tour .tCard { position: relative; z-index: 1; width: min(452px, calc(100% - 36px)); max-height: 100%; overflow-y: auto; padding: 8px 6px; }
+#tour h2 { font-size: 34px; margin: 22px 0 10px; }
+#tour p.muted { min-height: 4.5em; margin: 0 0 16px; font-size: 14px; color: #a9b1c0; }
+#tour .tNav { display: flex; align-items: center; gap: 8px; }
+#tour .tNav button { padding: 8px 18px; }
+/* The ring shows once someone uses Tab, not because Next has focus when the tour opens. */
+#tour button:focus { outline: none; }
+#tour.kb button:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
+#tour .tDots { display: flex; gap: 6px; }
+#tour .tDots i { width: 6px; height: 6px; border-radius: 50%; background: rgba(243, 234, 219, 0.22); }
+#tour .tDots i.on { width: 18px; border-radius: 3px; background: var(--accent); }
+
+#tour .tArt {
+    height: 220px; padding: 16px; overflow: hidden; border-radius: 16px;
+    display: flex; flex-direction: column; justify-content: center; gap: 8px;
+    background: rgba(11, 21, 39, 0.72); border: 1px solid var(--border);
+}
+#tour .tLogo { height: 40px; align-self: center; margin-bottom: 10px; }
+.tPills { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.tPills span { padding: 7px 15px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); background: var(--field); }
+.tPills span.on { background: var(--accent-soft); color: var(--accent-2); border-color: transparent; }
+.tSearch { display: flex; align-items: center; gap: 10px; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--accent); }
+.tSearch b { font-weight: 400; flex: 1; }
+.tSearch span { color: var(--muted); }
+.tSearch:has(.tBtn) { border: 0; padding: 0; }
+.tSearch .tBtn { padding: 7px 14px; border-radius: 999px; background: var(--field); border: 1px solid var(--border-strong); color: var(--text); }
+.tSearch em { font: 400 18px var(--serif); color: var(--accent-2); }
+.tRow { display: flex; align-items: center; gap: 10px; padding: 5px 10px; border-radius: 10px; }
+.tRow.sel { background: var(--row-sel); }
+.tPlay { width: 24px; height: 24px; flex: none; border-radius: 50%; border: 1px solid var(--border-strong); display: flex; align-items: center; justify-content: center; font-size: 9px; color: var(--muted); }
+.tRow.sel .tPlay { color: var(--accent); border-color: var(--accent); }
+.tName { flex: 1; min-width: 0; display: flex; flex-direction: column; white-space: nowrap; overflow: hidden; }
+.tName small { font-size: 11px; color: var(--muted); }
+.tName .tag { font-style: normal; }
+.tRow .tWave { width: 120px; height: 26px; flex: none; }
+.tWave .idle { fill: var(--wave); }
+.tRow.sel .tWave .idle { fill: var(--wave-sel); }
+.tWave .on { fill: var(--accent); }
+.tWave .dim { fill: var(--wave-dim); }
+.tHead { display: flex; align-items: center; justify-content: space-between; }
+.tHead b { font: 400 17px var(--serif); }
+.tDrag { padding: 5px 14px; border-radius: 999px; background: var(--cream); color: var(--ink); font-weight: 600; }
+.tEdit { position: relative; height: 104px; border-radius: 10px; overflow: hidden; background: rgba(8, 16, 30, 0.55); border: 1px solid var(--hairline); }
+.tEdit .tWave { position: absolute; inset: 8px 0; width: 100%; height: calc(100% - 16px); }
+/* The picked section: bars 26 to 70 of 96 (see tour.js). */
+.tEdit::before { content: ""; position: absolute; top: 0; bottom: 0; left: 27.1%; width: 46.9%; background: var(--accent-wash); border: solid var(--accent); border-width: 0 1.5px; }
+.tSide { width: 236px; margin: 0 auto; }
+.tSide p { margin: 4px 10px 2px; display: flex; justify-content: space-between; font-size: 10.5px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); }
+.tSide u { text-decoration: none; text-transform: none; letter-spacing: 0; font-size: 11px; color: var(--accent-2); }
+.tSide div { display: flex; justify-content: space-between; padding: 4px 10px; border-radius: 999px; color: var(--muted); }
+.tSide div.on { background: var(--accent-soft); color: var(--accent-2); }
+.tSide s { text-decoration: none; font-size: 11px; }
+
+@media (max-height: 560px) {
+    #tour .tArt { height: 194px; padding: 10px 16px; gap: 4px; }
+    #tour .tLogo { height: 32px; margin-bottom: 6px; }
+    #tour h2 { font-size: 27px; margin: 14px 0 8px; }
+    #tour p.muted { margin-bottom: 10px; }
+}

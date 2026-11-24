@@ -22,6 +22,8 @@
 
 In Resolve, open **Workspace › Workflow Integrations › IRO** and choose the folders that hold your sound effects. IRO sorts them once into Whooshes, Risers, Impacts, Pops and more, using the file names and how each sound behaves. Later rescans only look at new or changed files.
 
+The first time IRO opens, a five-screen tour shows what it can do. To see it again, click **About** (or **♥ Donate**) › **Show the tour**.
+
 ### 2. Search, preview and keep just the part you need
 <img src="docs/images/2-search-preview.jpg" alt="Searching for whoosh, with one sound selected and part of its waveform picked" width="100%">
 
@@ -77,6 +79,7 @@ The folder list is kept in `~/Library/Application Support/IRO/config.json`.
 - Drag the **edge between the sidebar and the list** to widen the sidebar for long pack names. When the list gets narrow, waveforms shrink and then hide so names stay readable.
 - **Right-click** › Move to category fixes a wrong category. Your choice is kept across rescans.
 - **Your own categories:** click **+ New** next to *My categories* in the sidebar, or right-click a sound › Move to category › *+ New category…* to make one and move the sound into it in one go. Right-click one of your categories to rename or delete it. Deleting it sends its sounds back to the category IRO sorted them into; no files are touched. They are kept in `prefs.json`.
+- **Focus lighting:** the part you are using (categories, sounds or waveform) is lit and the other two go dark. The selected category and sound stay bright so you keep your place. If your Mac is set to increase contrast, the shading is off.
 - **Needs review** lists sounds the sorter was unsure about.
 - **Read music key** reads the key of the music under the playhead, from the part of the clip you used. Green key tags fit the music, or the key picked in the Key filter.
 

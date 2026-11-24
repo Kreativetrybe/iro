@@ -1,0 +1,42 @@
+/* Focus lighting (zones.js): the part in use is clearly lighter, the other two go near-black.
+   Each part has one permanent shade on top whose opacity fades. The sound rows are redrawn all the
+   time, so nothing here animates the rows themselves: that is what keeps it from flickering. */
+:root {
+    --lit: #2c3a54;
+    --dark: #03060d;
+    --shade: 0.46;
+    --fade: 0.28s ease-in-out;
+    /* Waveforms and stars, lifted so they read on the lighter background too. */
+    --wave: #93a5c9;
+    --wave-idle: #b4c0d8;
+    --wave-dim: #64769e;
+    --row-sel: #52311c;  /* solid, so what is selected looks the same lit or dark */
+}
+/* Quiet text, lifted so it is still readable under the shade. */
+main { --muted: #dcdcdc; position: relative; isolation: isolate; }
+
+#cats, #toolbar, #listArea, #editor { background-color: var(--dark); transition: background-color var(--fade); }
+#toolbar, #editor { position: relative; }
+main[data-zone="cats"] #cats,
+main[data-zone="list"] :is(#toolbar, #listArea),
+main[data-zone="edit"] #editor { background-color: var(--lit); }
+
+/* The shades. The sidebar's is on main, because the sidebar itself scrolls (zones.js sets --cats-w). */
+main::before, #toolbar::after, #listArea::after, #editor::after {
+    content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: var(--dark); opacity: var(--shade); transition: opacity var(--fade);
+}
+main::before { right: auto; width: var(--cats-w, 176px); }
+main[data-zone="cats"]::before,
+main[data-zone="list"] :is(#toolbar, #listArea)::after,
+main[data-zone="edit"] #editor::after { opacity: 0; }
+
+/* Above the shade, so you keep your place: the selected category, the selected sound, the one playing. */
+#cats .cat.on { position: relative; z-index: 2; background: var(--row-sel); color: #ffd09a; }
+#cats .cat.on .n { color: #ffd09a; }
+.row:is(.sel, .playing) { z-index: 2; }
+.row.sel .tag.sect { color: #ffd09a; background: rgba(0, 0, 0, 0.28); }
+
+@media (prefers-reduced-motion: reduce) { :root { --fade: 0s; } }
+/* People who asked their Mac for more contrast get full contrast everywhere. */
+@media (prefers-contrast: more) { :root { --shade: 0; } }

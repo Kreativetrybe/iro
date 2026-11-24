@@ -7,7 +7,7 @@
 ; the one from the customer's own Resolve Studio install.
 
 #define AppName "IRO"
-#define AppVersion "1.0.0"
+#define AppVersion "1.0.1"
 #define PluginId "com.thiseniola.iro"
 
 [Setup]

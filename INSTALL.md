@@ -5,8 +5,8 @@
 ## Mac
 
 1. Close DaVinci Resolve.
-2. Double-click **IRO-1.0.0.pkg**. macOS says it "can't verify" the installer, because it isn't from the App Store or a paid Apple developer account. Click **Done**, not Move to Trash.
-3. Open **System Settings › Privacy & Security** and scroll down to **Security**. Next to *"IRO-1.0.0.pkg" was blocked*, click **Open Anyway**, then enter your Mac password.
+2. Double-click **IRO-1.0.1.pkg**. macOS says it "can't verify" the installer, because it isn't from the App Store or a paid Apple developer account. Click **Done**, not Move to Trash.
+3. Open **System Settings › Privacy & Security** and scroll down to **Security**. Next to *"IRO-1.0.1.pkg" was blocked*, click **Open Anyway**, then enter your Mac password.
 4. The installer opens. Click through it. It asks for your password once, to put the panel in Resolve's plugin folder.
 5. Open Resolve and choose **Workspace › Workflow Integrations › IRO**, then pick your sound folders.
 

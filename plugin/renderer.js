@@ -41,6 +41,7 @@ async function load() {
     if (state.prefs.sidebar) $('cats').style.width = `${state.prefs.sidebar}px`;
     $('volume').value = state.prefs.volume;
     audio.volume = state.prefs.volume;
+    tourOnce();
     if (!state.folders.length) {
         welcome();
         return;
@@ -1135,6 +1136,7 @@ window.sfx.about().then((p) => {
 $('aboutBtn').addEventListener('click', () => { $('about').hidden = false; });
 document.querySelector('header .logo').addEventListener('click', () => { $('about').hidden = false; });
 $('aboutClose').addEventListener('click', () => { $('about').hidden = true; });
+$('aboutTour').addEventListener('click', () => { $('about').hidden = true; openTour(); });
 $('aboutDonate').addEventListener('click', () => window.sfx.open('donate'));
 $('aboutSite').addEventListener('click', () => window.sfx.open('website'));
 
